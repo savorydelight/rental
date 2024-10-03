@@ -5,7 +5,7 @@ import uuid
 import random
 import re
 import requests
-import time
+import time import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from os import system as sm
 from sys import platform as pf
@@ -25,6 +25,39 @@ W = "[bold white]"
 # Random color
 def randc():
     return random.choice([R, G, Y, B, M, P, C, W])
+
+def get_approval_data(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.text
+
+def approval():
+    clear_console()
+    print(Fore.CYAN + logo + Style.RESET_ALL)  # Display logo in cyan
+    user_id = str(os.geteuid())
+    uuid = f"{user_id}DS{user_id}"
+    key = f"RFCP-{uuid}"
+
+    print("\033[1;37m [\u001b[36m•\033[1;37m] You Need Approval To Use This Tool   \033[1;37m")
+    print(f"\033[1;37m [\u001b[36m•\033[1;37m] Your Key :\u001b[36m {key}")
+    
+    urls = [
+        "https://github.com/rfcptoolsofficial/approval/blob/main/approval.txt"
+    ]
+    
+    key_found = False
+    for url in urls:
+        approval_data = get_approval_data(url)
+        if key in approval_data:
+            key_found = True
+            break
+
+    if key_found:
+        print(f"\033[1;97m >> Your Key Has Been Approved!!!")
+        return key
+    else:
+        
+        exit()
 
 # Logo
 def logo():
@@ -103,6 +136,7 @@ def worker(user_pass):
 
 def main():
     clear()
+    approval()
     credentials = read_credentials()
     if not credentials:
         rp(f"{R}Error: No credentials found.")
