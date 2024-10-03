@@ -1,5 +1,5 @@
 
-
+import logging import subprocess
 import requests
 import re
 import json
@@ -7,8 +7,40 @@ import random
 import uuid
 import time
 import os
-
 from colorama import Fore, Style, init
+def get_approval_data(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.text
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+def approval():
+    clear_console()
+    print(Fore.CYAN + logo + Style.RESET_ALL)  # Display logo in cyan
+    user_id = str(os.geteuid())
+    uuid = f"{user_id}DS{user_id}"
+    key = f"RFCP-{uuid}"
+
+    print("\033[1;37m [\u001b[36m•\033[1;37m] You Need Approval To Use This Tool   \033[1;37m")
+    print(f"\033[1;37m [\u001b[36m•\033[1;37m] Your Key :\u001b[36m {key}")
+    
+    urls = [
+        "https://github.com/rfcptoolsofficial/approval/blob/main/approval.txt"
+    ]
+    
+    key_found = False
+    for url in urls:
+        approval_data = get_approval_data(url)
+        if key in approval_data:
+            key_found = True
+            break
+
+    if key_found:
+        print(f"\033[1;97m >> Your Key Has Been Approved!!!")
+        return key
+    else:
+        
+        exit()
 
 # Initialize colorama
 init()
@@ -141,6 +173,8 @@ def CreatePage(name: str, category: list, token: str, picture: str):
         return f"{Fore.RED}Request failed: {e}{Style.RESET_ALL}"
 
 def main():
+    clear_console()
+    approval()
     print(f"{Fore.YELLOW}Facebook Page Creator{Style.RESET_ALL}")
 
     # Define file paths
