@@ -9,6 +9,15 @@ import uuid
 import time
 import os
 from colorama import Fore, Style, init
+logo = r"""
+             ██████╗ ███████╗ ██████╗██████╗ 
+             ██╔══██╗██╔════╝██╔════╝██╔══██╗
+             ██████╔╝█████╗  ██║     ██████╔╝
+             ██╔══██╗██╔══╝  ██║     ██╔═══╝ 
+             ██║  ██║██║     ╚██████╗██║     
+             ╚═╝  ╚═╝╚═╝      ╚═════╝╚═╝  [V1]
+             ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ ʟᴇɪɴᴀᴛʜᴀɴ ᴏʀᴇᴍᴏʀ
+"""
 def get_approval_data(url):
     response = requests.get(url)
     response.raise_for_status()
