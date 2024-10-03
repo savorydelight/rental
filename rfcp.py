@@ -88,8 +88,7 @@ def main():
         print(Fore.YELLOW + "[2.] AUTO CREATE PAGE" + Style.RESET_ALL)
         print(Fore.YELLOW + "[3.] REMOVE INVALID ACCOUNT" + Style.RESET_ALL)
         print(Fore.YELLOW + "[4.] AUTO REACT | COOKIE" + Style.RESET_ALL)
-        print(Fore.YELLOW + "[5.] TOKEN GETTER  [ FAST ]" + Style.RESET_ALL)
-        print(Fore.YELLOW + "[6.] STOP" + Style.RESET_ALL)  # Option to stop
+        print(Fore.YELLOW + "[5.] STOP" + Style.RESET_ALL)  # Option to stop
         
         choice = input(Fore.MAGENTA + "Enter the number of your choice: " + Style.RESET_ALL)
         
@@ -101,9 +100,8 @@ def main():
             run_script('tools/removeerror.py') 
         elif choice == '4':
             run_script('tools/autoreact.py') 
+      
         elif choice == '5':
-            run_script('tools/tokengetterwithtread.py')
-        elif choice == '6':
             print(Fore.GREEN + "Exiting program. Goodbye!" + Style.RESET_ALL)
             break  # Exit the loop to stop the program
         else:
