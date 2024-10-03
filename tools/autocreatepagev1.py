@@ -9,6 +9,8 @@ import uuid
 import time
 import os
 from colorama import Fore, Style, init
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
 logo = r"""
              ██████╗ ███████╗ ██████╗██████╗ 
              ██╔══██╗██╔════╝██╔════╝██╔══██╗
