@@ -1,5 +1,6 @@
-import subprocess import logging
-import logging import subprocess
+
+import logging
+import subprocess
 import requests
 import re
 import json
