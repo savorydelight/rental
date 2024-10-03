@@ -12,6 +12,7 @@ from os import system as sm
 from sys import platform as pf
 from rich import print as rp
 from rich.panel import Panel as pan
+from colorama import init, Fore, Style
 
 # Colors
 R = "[bold red]"
