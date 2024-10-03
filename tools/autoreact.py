@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from time import sleep
 import subprocess 
 import logging
+from colorama import init, Fore, Style
 import colorama
 
 colorama.init()
