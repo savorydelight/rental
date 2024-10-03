@@ -5,7 +5,8 @@ import uuid
 import random
 import re
 import requests
-import time import logging
+import time 
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from os import system as sm
 from sys import platform as pf
