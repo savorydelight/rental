@@ -22,7 +22,8 @@ M = "[bold magenta]"
 P = "[bold violet]"
 C = "[bold cyan]"
 W = "[bold white]"
-
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
 # Random color
 def randc():
     return random.choice([R, G, Y, B, M, P, C, W])
