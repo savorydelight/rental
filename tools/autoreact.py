@@ -176,8 +176,7 @@ class Machine:
         
         clear_console()
         approval()
-        display_logo()
-        
+      
         while True:
             self.get_cookies()
 
@@ -194,7 +193,7 @@ class Machine:
                 self.session_list.clear()
 
         clear_console()
-        display_logo()
+        
        
         print("\nLogged in accounts:")
         for account in self.logged_in_accounts:
